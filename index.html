@@ -1,0 +1,80 @@
+<!-- quiz.html -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="Logo.ico" type="image/x-icon">
+    <title>PharmaTest</title>
+    <link rel="stylesheet" href="Styles/quiz.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+    <!-- <header>
+        <img src="images/Logo.svg" alt="Skip Question" style="width: 4rem; height: 4rem;">
+        
+        <h1>. PharmaTest</h1>
+        <button id="back-home" class="header-button" onclick="location.href='home.html'">
+            <img src="images/icons/home.svg" alt="Next Question" style="width: 24px; height: 24px;">
+        </button>
+    </header> -->
+
+    <header>
+        <img src="images/Logo.svg" alt="Skip Question" style="width: 4rem; height: 4rem;">
+        <h1>PharmaTest</h1>
+        <span id="window-size"></span> <!-- Span para mostrar las dimensiones -->
+        <button id="back-home" class="header-button" onclick="location.href='home.html'">
+            <img src="images/icons/home.svg" alt="Next Question" style="width: 24px; height: 24px;">
+        </button>
+    </header>
+
+    <div id="verifier" class="card verifier">
+        <div  class="button-group">
+            <h2 id="question-number">Question: 1</h2>
+            <div class="button-container">
+                <button id="show-justifications" class="hidden">
+                    <img src="images/icons/check.svg" alt="Next Question" style="width: 24px; height: 24px; color: white;">
+                </button>
+                <button id="next-question" class="hidden">
+                     <img src="images/icons/Next.svg" alt="Next Question" style="width: 24px; height: 24px;">
+                </button>
+                <button id="skip-question">
+                    <img src="images/icons/skip.svg" alt="Skip Question" style="width: 24px; height: 24px;">
+                </button>
+            </div>
+        </div>
+    </div>
+
+    
+
+    <div class="card" id="pregunta">
+        <div class="score-timer-container">
+            <span id="score">Score: 0</span>
+            <span id="timer">Time: 90 sec</span>
+        </div>
+       
+        <div id="question-container" class="question"></div>
+        <div id="image-container" class="image-container"></div>
+        <div id="alternatives-container" class="alternatives-container"></div>
+    
+    </div>
+
+    <div class="card hidden" id="justification-card">
+        <h2 id="result-message"></h2>
+        <div id="justifications-container" tabindex="-1"></div>
+    </div>
+    <button id="scroll-to-top" class="scroll-to-top hidden">
+        <!-- ↑</button> -->
+        <img src="images/icons/up.svg" alt="Up" style="width: 24px; height: 24px;">
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="Scripts/Aleatorio.js" type="module"></script>
+    <script src="Scripts/Script.js" type="module"></script>
+    <script src="Scripts/Timer.js" type="module"></script>
+    <script src="Scripts/sticky.js"></script>
+
+</body>
+</html>

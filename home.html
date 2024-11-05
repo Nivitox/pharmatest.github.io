@@ -1,0 +1,50 @@
+<!-- home.html -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="Logo.ico" type="image/x-icon">
+    <title>Página de Inicio</title>
+    <link rel="stylesheet" href="styles/home.css"> <!-- Aquí incluye tu CSS -->
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a la Página de Inicio</h1>
+    </header>
+    <div class="card">
+        <h2>Inicio de Sesión Exitoso</h2>
+        <p>¡Ahora puedes comenzar el cuestionario!</p>
+        <!-- <button id="start-quiz2">Iniciar Cuestionario</button> -->
+        <div class="button-container">
+            <button id="start-quiz" class="large-button" onclick="startQuiz()">General</button>
+            <button class="large-button" disabled>Biomedical</button>
+            <button class="large-button" disabled>Pharmaceutical</button>
+            <button class="large-button" disabled>Clinical</button>
+            <button class="large-button" disabled>Professional</button>
+            <button class="large-button" disabled>Administrative</button>
+        </div>
+        
+    </div>
+
+
+
+    <div class="top-scores-card">
+        <h2>Mejores Puntajes</h2>
+        <ul class="top-scores-list">
+            <li>Usuario 1: 100</li>
+            <li>Usuario 2: 90</li>
+            <li>Usuario 3: 85</li>
+            <li>Usuario 4: 80</li>
+            <li>Usuario 5: 75</li>
+        </ul>
+    </div>
+
+    <script>
+        document.getElementById('start-quiz').addEventListener('click', function() {
+            window.location.href = 'quiz.html'; // Cambia esto a la URL de tu cuestionario
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,295 @@
+/* quiz.css */
+
+:root {
+    --xIndigo: rgb(46, 56, 96);
+    --button-hover-background: #151a2c;
+}
+
+
+/* Reset de márgenes y padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f2f2f2;
+}
+
+/* Negrita ligera para textos destacados */
+.bold-text {
+    font-weight: 600;
+}
+/* Tarjeta y texto en general */
+.card, .alternative-button, #question-container, #result-message, header h1, h2, #score, #timer {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400; /* Peso normal */
+}
+
+/* Negrita fina para la alternativa correcta */
+.alternative-button.correct-answer {
+    font-weight: 600;
+}
+
+/* Header */
+header {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--xIndigo);
+    color: white;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+    display: flex; /* Usa flexbox para alinear los elementos */
+    justify-content: flex-end; /* Alinea todo a la derecha */
+    align-items: center; /* Centra verticalmente */
+}
+
+h1 {
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+    margin-right: auto; /* Empuja el título hacia la izquierda */
+}
+
+/* Tarjeta */
+.card {
+    background-color: white;
+    width: 90%;
+    max-width: 1000px;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+h2 {
+    font-size: 1.75rem;
+    color: #333;
+    text-align: center;
+}
+
+.card-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 1.1rem;
+    color: #666;
+    border-bottom: 0px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+/* Estilizar el contenedor de la pregunta */
+ #question-container {
+    font-size: 1rem; 
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 40px; 
+    background-color: #f9f9f9; 
+    border: 1px solid #e0e0e0; 
+    border-radius: 8px; 
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+} 
+
+/* Ajuste en el título de la pregunta */
+h2#question-number {
+    font-size: 1.3rem;
+    color: #555;
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+
+ .image-container img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
+} 
+
+/* Botones de alternativas */
+.alternatives-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.alternative-button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--xIndigo);;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.alternative-button:hover:not(:disabled) {
+    background-color: #005bb5;
+    transform: translateY(-2px);
+}
+
+.alternative-button:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
+
+/* Grupo de botones */
+.button-group {
+    display: flex;
+    justify-content: space-between; /* Alinea la pregunta a la izquierda y los botones a la derecha */
+    align-items: center; /* Alinea verticalmente al centro */
+    width: 100%;
+    padding: 10px;
+}
+/* Estilo de la alternativa correcta seleccionada */
+.alternative-button.correct-answer {
+    background-color: #28a745; /* Verde claro para indicar correcta */
+    color: white;
+    font-weight: bold; /* Fuente en negrita */
+    box-shadow: 0px 4px 10px rgba(40, 167, 69, 0.5);
+    border: 1px solid #218838;
+}
+
+/* Estilo de la alternativa incorrecta seleccionada */
+.alternative-button.incorrect-answer {
+    background-color: #dc3545; /* Rojo claro para incorrecta */
+    color: white;
+    box-shadow: 0px 4px 10px rgba(220, 53, 69, 0.5);
+}
+
+/* Otros estilos permanecen igual */
+.alternative-button:hover:not(:disabled) {
+    background-color: var(--button-hover-background);
+    transform: translateY(-2px);
+    
+}
+
+
+button {
+    background-color: var(--xIndigo);
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover{
+    background-color: var(--button-hover-background);
+}
+
+/* Justificaciones */
+#justifications-container {
+    background-color: #f9f9f9; /* Fondo suave */
+    padding: 15px; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados */
+    width: 100%;
+    margin-top: 10px;
+    font-size: 1rem; /* Tamaño de fuente más legible */
+    color: #333;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Sombra para efecto visual */
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Espacio entre justificaciones */
+}
+
+/* Estilo para una justificación correcta */
+.justification.correct {
+    background-color: #e6f4ea; /* Verde claro */
+    border-left: 5px solid #28a745; /* Borde verde */
+    padding: 10px;
+    border-radius: 6px;
+    color: #155724; /* Texto verde oscuro */
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio para el ícono */
+}
+
+/* Estilo para una justificación incorrecta */
+.justification.incorrect {
+    background-color: #f8d7da; /* Rojo claro */
+    border-left: 5px solid #dc3545; /* Borde rojo */
+    padding: 10px;
+    border-radius: 6px;
+    color: #721c24; /* Texto rojo oscuro */
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio para el ícono */
+}
+
+/* Icono o etiqueta al lado de la justificación */
+.justification-icon {
+    font-size: 1.2rem;
+    display: inline-block;
+}
+
+/* Texto de la justificación */
+.justification-text {
+    font-size: 1rem;
+    line-height: 1.6; /* Mejor espaciado entre líneas */
+    margin-top: 5px;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center; /* Centra horizontalmente */
+    align-items: center; /* Centra verticalmente */
+    width: 100%; /* Asegúrate de que ocupe todo el ancho disponible */
+    margin: 10px 0; /* Agrega espacio arriba y abajo */
+    max-height: 500px;
+}
+.image-container img {
+    max-width: 100%; /* Asegúrate de que no se desborde */
+    height: auto; /* Mantén la relación de aspecto */
+    border-radius: 8px; /* Redondea los bordes */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra para efecto visual */
+}
+
+.hidden {
+    display: none;
+}
+
+.score-timer-container {
+    display: flex;
+    justify-content: space-between; /* Espacio entre los elementos */
+    align-items: center; /* Alinear verticalmente al centro */
+    width: 100%; /* Asegúrate de que el contenedor use todo el ancho disponible */
+    margin: 0px 0; /* Espaciado opcional */
+    padding: 0 15px; /* Agrega un poco de padding si es necesario */
+}
+
+#score {
+    margin-right: auto; /* Empuja el temporizador hacia la derecha */
+}
+
+#timer {
+    margin-left: auto; /* Asegúrate de que el temporizador esté a la derecha */
+}
+
+
+
+.header-button i {
+    color: var(--xIndigo); 
+    font-size: 1.2rem; /* Cambia el tamaño del ícono */
+    margin-right: 5px; /* Espacio entre el ícono y cualquier texto (si decides dejar texto) */
+}

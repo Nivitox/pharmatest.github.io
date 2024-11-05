@@ -1,0 +1,367 @@
+/* quiz.css */
+
+:root {
+    --xIndigo: rgb(46, 56, 96);
+    --xIndigoD: #151a2c;
+    --xCorrect:#28a745;
+    --xIncorrect:#dc3545;
+    --xCorrectD:rgba(40, 167, 69, 0.5);
+    --xIncorrectD:rgba(220, 53, 69, 0.5);
+}
+
+
+/* Reset de márgenes y padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #f2f2f2;
+}
+
+/* Negrita ligera para textos destacados */
+.bold-text {
+    font-weight: 600;
+}
+/* Tarjeta y texto en general */
+.card, .alternative-button, #question-container, #result-message, header h1, h2, #score, #timer {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400; /* Peso normal */
+}
+
+/* Negrita fina para la alternativa correcta */
+.alternative-button.correct-answer {
+    font-weight: 600;
+}
+
+/* Header */
+header {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: var(--xIndigo);
+    color: white;
+    box-shadow: 0px 0.125rem 0.3125rem rgba(0, 0, 0, 0.2);
+    display: flex; /* Usa flexbox para alinear los elementos */
+    justify-content: flex-end; /* Alinea todo a la derecha */
+    align-items: center; /* Centra verticalmente */
+}
+
+h1 {
+    font-size: 2.5rem;
+    letter-spacing: 0.0625rem; /* 1px en rem */
+    margin-right: auto; /* Empuja el título hacia la izquierda */
+}
+
+/* Tarjeta */
+.card {
+    background-color: white;
+    width: 90%;
+    max-width: 50rem; /* 1000px en rem */
+    padding-left: 1.25rem;
+    padding-top: 0rem;
+    padding-bottom: 0rem;
+    padding-right: 1.25rem;
+    margin-top: 0.4rem; /* 20px en rem */
+    border-radius: 0.75rem; /* 12px en rem */
+    box-shadow: 0px 0.625rem 1.25rem rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.9375rem; /* 15px en rem */
+}
+
+h2 {
+    font-size: 1.5rem;
+    color: #333;
+    text-align: center;
+}
+
+.card-info {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 1.1rem;
+    color: #666;
+    border-bottom: 0px solid #ddd;
+    padding-bottom: 0.625rem; /* 10px en rem */
+    margin-bottom: 0.625rem; /* 10px en rem */
+}
+
+/* Estilizar el contenedor de la pregunta */
+#question-container {
+    font-size: 1rem; 
+    color: #333;
+    text-align: center;
+    margin-bottom: .7rem; /* 10px en rem */
+    padding: 2.5rem; /* 40px en rem */
+    background-color: #f9f9f9; 
+    border: 0.0625rem solid #e0e0e0; /* 1px en rem */
+    border-radius: 0.5rem; /* 8px en rem */
+    box-shadow: 0px 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+    width: 100%; 
+}
+
+#question-number {
+    font-size: 1.2em; /* Ajusta el tamaño del texto según tus necesidades */
+    font-weight: bold; /* Para que sea más visible */
+    padding: 10px; /* Añade un poco de espacio interno */
+    border-radius: 5px; /* Opcional: para bordes redondeados */
+}
+
+/* Ajuste en el título de la pregunta */
+h2#question-number {
+    font-size: 1.3rem;
+    color: #555;
+    margin-bottom: 0rem; /* 10px en rem */
+    font-weight: bold;
+    text-align: left; /* Alinea el texto a la izquierda */
+}
+
+#pregunta {
+    margin-bottom: 1rem; /* Ajusta el valor según lo que necesites */
+    padding-bottom: 1rem;
+}
+
+
+.image-container img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 0.3125rem; /* 5px en rem */
+    border-radius: 0.625rem; /* 10px en rem */
+    box-shadow: 0px 0.25rem 0.75rem rgba(0, 0, 0, 0.5);
+}
+
+/* Botones de alternativas */
+.alternatives-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.625rem; /* 10px en rem */
+    width: 100%;
+}
+
+.alternative-button {
+    width: 100%;
+    padding: 0.75rem; /* 12px en rem */
+    background-color: var(--xIndigo);
+    color: white;
+    border: none;
+    border-radius: 0.375rem; /* 6px en rem */
+    cursor: pointer;
+    font-size: 1.1rem;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0px 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+}
+
+.alternative-button:hover:not(:disabled) {
+    background-color: #005bb5;
+    transform: translateY(-0.125rem); /* -2px en rem */
+}
+
+.alternative-button:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
+
+/* Grupo de botones */
+.button-group {
+    display: flex;
+    justify-content: space-between; /* Alinea la pregunta a la izquierda y los botones a la derecha */
+    align-items: center; /* Alinea verticalmente al centro */
+    width: 100%;
+    padding: 0.625rem; /* 10px en rem */
+}
+
+/* Estilo de la alternativa correcta seleccionada */
+.alternative-button.correct-answer {
+    background-color: var(--xCorrect); /* Verde claro para indicar correcta */
+    color: white;
+    font-weight: bold; /* Fuente en negrita */
+    box-shadow: 0px 0.25rem 0.625rem var(--xCorrectD);
+    border: 0.0625rem solid #218838; /* 1px en rem */
+}
+
+/* Estilo de la alternativa incorrecta seleccionada */
+.alternative-button.incorrect-answer {
+    background-color: var(--xIncorrect); /* Rojo claro para incorrecta */
+    color: white;
+    box-shadow: 0px 0.25rem 0.625rem var(--xIncorrectD);
+}
+
+/* Otros estilos permanecen igual */
+.alternative-button:hover:not(:disabled) {
+    background-color: var(--xIndigoD);
+    transform: translateY(-0.125rem); /* -2px en rem */
+}
+
+button {
+    background-color: var(--xIndigo);
+    color: white;
+    padding: 0.625rem 1.25rem; /* 10px 20px en rem */
+    font-size: 1rem;
+    border: none;
+    border-radius: 0.375rem; /* 6px en rem */
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+    background-color: var(--xIndigoD);
+}
+
+/* Justificaciones */
+#justifications-container {
+    background-color: #f9f9f9; /* Fondo suave */
+    padding: 0.9375rem; /* 15px en rem */
+    border-radius: 0.5rem; /* Bordes redondeados */
+    width: 100%;
+    margin-top: 0.625rem; /* 10px en rem */
+    margin-bottom: 2rem;
+    font-size: 1rem; /* Tamaño de fuente más legible */
+    color: #333;
+    box-shadow: 0px 0.25rem 0.625rem rgba(0, 0, 0, 0.1); /* Sombra para efecto visual */
+    display: flex;
+    flex-direction: column;
+    gap: 0.9375rem; /* Espacio entre justificaciones */
+}
+
+/* Estilo para una justificación correcta */
+.justification.correct {
+    background-color: #e6f4ea; /* Verde claro */
+    border-left: 0.3125rem solid var(--xCorrect); /* Borde verde */
+    padding: 0.625rem; /* 10px en rem */
+    border-radius: 0.375rem; /* 6px en rem */
+    color: #155724; /* Texto verde oscuro */
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.625rem; /* Espacio para el ícono */
+}
+
+/* Estilo para una justificación incorrecta */
+.justification.incorrect {
+    background-color: #f8d7da; /* Rojo claro */
+    border-left: 0.3125rem solid var(--xIncorrect); /* Borde rojo */
+    padding: 0.625rem; /* 10px en rem */
+    border-radius: 0.375rem; /* 6px en rem */
+    color: #721c24; /* Texto rojo oscuro */
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.625rem; /* Espacio para el ícono */
+}
+
+/* Contenedor del puntaje y temporizador */
+.score-timer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-top: 1rem;
+}
+
+/* Estilo para mostrar el puntaje */
+#score {
+    font-size: 1.25rem; /* Un poco más grande */
+    font-weight: bold; /* Negrita */
+    color: #333; /* Texto oscuro */
+}
+
+/* Estilo para mostrar el temporizador */
+#timer {
+    font-size: 1.25rem; /* Un poco más grande */
+    font-weight: bold; /* Negrita */
+    color: #333; /* Texto oscuro */
+}
+
+#result-message {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    width: 100%; /* Asegura el uso completo del ancho */
+    margin-top: 1.25rem;
+}
+
+
+.hidden {
+    display: none;
+}
+
+.verifier {
+    margin: 10px; /* Elimina cualquier margen */
+    padding: 0; /* También puedes eliminar el padding si no lo necesitas */
+}
+
+.verifier-correct {
+    background-color: var(--xCorrect); /* Verde claro para indicar correcta */
+    color: white; /* Texto en blanco para buena visibilidad */
+    box-shadow: 0px 0.25rem 0.625rem var(--xCorrectD);
+}
+
+.verifier-incorrect {
+    background-color: var(--xIncorrect); /* Rojo claro para incorrecta */
+    color: white; /* Texto en blanco para buena visibilidad */
+    box-shadow: 0px 0.25rem 0.625rem var(--xIncorrectD);
+}
+
+
+/* Estilos de medios para pantallas pequeñas */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2rem; /* Reducción para pantallas pequeñas */
+    }
+
+    h2 {
+        font-size: 1.5rem; /* Reducción para pantallas pequeñas */
+    }
+
+    .alternative-button {
+        padding: 0.5rem; /* Reducción de padding */
+        font-size: 1rem; /* Reducción de tamaño de fuente */
+    }
+
+    .justifications-container {
+        padding: 0.625rem; /* Reducción de padding */
+    }
+}
+
+/* quiz.css */
+
+.verifier.stuck {
+    position: fixed;
+    top: 0px;
+    z-index: 1000;
+}
+
+/* Agrega estos estilos en tu archivo CSS */
+#scroll-to-top {
+    position: fixed;
+    bottom: 20px; /* Ajusta según sea necesario */
+    right: 20px; /* Ajusta según sea necesario */
+    display: none; /* Inicialmente oculto */
+    background-color: var(--xIndigo); /* Color de fondo */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 0.75rem 1rem; /* Espaciado */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    z-index: 1000; /* Asegúrate de que esté en la parte superior */
+    font-weight: 1000;
+    transition: background-color 0.3s, color 0.3s; /* Transición suave para cambios de color */
+}
+
+/* Mostrar el botón cuando se desplaza */
+#scroll-to-top.visible {
+    display: block; /* Muestra el botón */
+}
+
+/* Si deseas un efecto al pasar el mouse */
+#scroll-to-top:hover {
+    background-color: var(--xIndigoD); /* Cambiar el fondo al pasar el mouse */
+    color: whitesmoke; /* Cambiar el color del texto al pasar el mouse */
+}

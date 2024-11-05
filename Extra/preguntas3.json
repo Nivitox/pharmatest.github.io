@@ -1,0 +1,16 @@
+
+[
+    {
+         "Question": "What?",
+        "Alternative1": "Alt1",
+        "Alternative2": "Alt2",
+        "Alternative3": "Alt3",
+        "Alternative4": "Alt4",
+        "Alternative5": "Alt5",
+        "Justification1": "Just1",
+        "Justification2": "Just2",
+        "Justification3": "Just3",
+        "Justification4": "Just4",
+        "Justification5": "Just5"
+    }
+]

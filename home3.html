@@ -1,0 +1,27 @@
+<!-- home.html -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Inicio</title>
+    <link rel="stylesheet" href="styles/Style.css"> <!-- Aquí incluye tu CSS -->
+</head>
+<body>
+    <header>
+        <h1>Bienvenido a la Página de Inicio</h1>
+    </header>
+    <div class="card">
+        <h2>Inicio de Sesión Exitoso</h2>
+        <p>¡Ahora puedes comenzar el cuestionario!</p>
+        <button id="start-quiz">Iniciar Cuestionario</button>
+    </div>
+
+    <script>
+        document.getElementById('start-quiz').addEventListener('click', function() {
+            window.location.href = 'quiz.html'; // Cambia esto a la URL de tu cuestionario
+        });
+    </script>
+</body>
+</html>
